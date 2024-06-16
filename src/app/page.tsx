@@ -5,7 +5,7 @@ import {Button, Horizon, config, FrameConnector, IconButton} from "nebula-ds-rea
 import {ReactNode} from "react";
 import nebula from "../../public/nebula.png"
 import vulcan from "../../public/vulcan.png"
-import vulcanSign from "../../public/vulcan_sign.png"
+import mattyxLogo from "../../public/mattyx.png"
 import {useBreakpoint} from '@react-awesome/use-breakpoint'
 import Image from "next/image";
 import {FramePanel} from "@/components/FramePanel";
@@ -16,19 +16,29 @@ export default function Home() {
 
   const isDesktop = Boolean(breakpoint.greater('md'))
 
+  const openURL = (url: string) => {
+    window.open(url, '_blank')?.focus();
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center bg-background-primary">
-      <section className="h-screen w-full bg-black">
-        <SectionContent className="justify-center">
-          <h1 className="text-background-contrast-primary-50">
-            Hi, I'm Gary
+      <section className="h-screen w-full bg-black flex items-center justify-center md:!justify-start">
+        <SectionContent className="justify-center !w-fit md:!w-full">
+          <h1 className="text-background-contrast-primary-50 text-11 md:text-12 leading-10">
+            Hi, I'm Matteo
           </h1>
           <p className="text-background-contrast-primary-50">
             I’m developing web experiences
           </p>
-          <Button
-            className="w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary"
-            rounded="RBottom" size="M" text="check-it"/>
+          <div className="w-full flex justify-center md:!justify-start">
+            <Button
+              className="w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary"
+              rounded="RBottom" size="M" text="check-it" onClick={() => {
+              document?.getElementById('projects')?.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }}/>
+          </div>
         </SectionContent>
       </section>
       <Horizon
@@ -42,12 +52,12 @@ export default function Home() {
       />
 
       {/*projects section*/}
-      <section className="w-full mt-28">
+      <section id="projects" className="w-full mt-28">
         <SectionContent className="!min-h-screen">
 
           {/*projects section title*/}
           <div className="w-full flex gap-4 items-center">
-            <h2>
+            <h2 className="text-10 md:text-12">
               Showcase
             </h2>
             <FrameConnector className="w-full" divider/>
@@ -57,8 +67,14 @@ export default function Home() {
           <FramePanel
             className="mt-28"
             renderHeader={<>
-              <IconButton size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}/>
-              <Button size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}/>
+              <IconButton
+                size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
+                onClick={() => openURL('https://github.com/mattyx96/nebula-ds-react-library')}
+              />
+              <Button
+                size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
+                onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
+              />
             </>}
             renderTitle={<div className={"flex flex-wrap gap-2 items-center sm:items-end"}>
               <h3 className="text-7 sm:text-10  font-orbitron-0">Nebula Design System</h3>
@@ -66,58 +82,31 @@ export default function Home() {
             </div>}
           >
             <div className="px-4 py-8 grid grid-cols-3 gap-10 md:grid-cols-5">
-              <p className="col-span-3 text-3">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquet, etiam vehicula odio blandit leo
-                phasellus pellentesque, varius convallis gravida commodo rhoncus iaculis laoreet. Cursus augue
-                congue
-                interdum luctus rhoncus ac quam per lacus orci vitae pharetra litora tortor penatibus potenti morbi,
-                nullam ligula dapibus inceptos netus ornare arcu facilisi ullamcorper pretium at varius est primis
-                duis. Suspendisse suscipit accumsan nam purus dapibus sociosqu, torquent vulputate parturient
-                inceptos
-                habitant vivamus, velit massa vehicula class curabitur. Felis pellentesque ut facilisi volutpat
-                nascetur sollicitudin luctus ante rhoncus varius, arcu neque platea ad eu porta molestie morbi non,
-                class etiam himenaeos nisl fames egestas proin commodo aenean. Pretium malesuada ullamcorper at
-                mauris
-                magnis auctor ridiculus nostra egestas quisque dictumst, id dui ornare sodales ac fermentum eros
-                facilisis tempor faucibus, netus nam pellentesque tempus nisi elementum torquent risus class
-                sed.
-              </p>
-
-              <div className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center">
-                <Image className="h-48 w-auto" src={nebula} alt="nebula logo"/>
-              </div>
-            </div>
-          </FramePanel>
-
-          <FramePanel
-            className="mt-10"
-            renderHeader={<>
-              <Button size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" rightIcon={<ArrowRightIcon/>}/>
-              <IconButton size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}/>
-            </>}
-            renderTitle={<h3 className="text-7 sm:text-10  font-orbitron-0">Nebula Design System</h3>}
-            inverse={isDesktop}
-          >
-            <div className="px-4 py-8 grid grid-cols-3 gap-10 md:grid-cols-5">
               <p className="col-span-3">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquet, etiam vehicula odio blandit leo
-                phasellus pellentesque, varius convallis gravida commodo rhoncus iaculis laoreet. Cursus augue
-                congue
-                interdum luctus rhoncus ac quam per lacus orci vitae pharetra litora tortor penatibus potenti morbi,
-                nullam ligula dapibus inceptos netus ornare arcu facilisi ullamcorper pretium at varius est primis
-                duis. Suspendisse suscipit accumsan nam purus dapibus sociosqu, torquent vulputate parturient
-                inceptos
-                habitant vivamus, velit massa vehicula class curabitur. Felis pellentesque ut facilisi volutpat
-                nascetur sollicitudin luctus ante rhoncus varius, arcu neque platea ad eu porta molestie morbi non,
-                class etiam himenaeos nisl fames egestas proin commodo aenean. Pretium malesuada ullamcorper at
-                mauris
-                magnis auctor ridiculus nostra egestas quisque dictumst, id dui ornare sodales ac fermentum eros
-                facilisis tempor faucibus, netus nam pellentesque tempus nisi elementum torquent risus class
-                sed.
+                Inspired by the <strong>space age aesthetics</strong> of the 1970s, <strong>Bauhaus</strong>,
+                and the iconic <strong>LCARS UI</strong> from Star Trek, I developed a visually captivating <strong>design
+                system</strong>.
+                <br/><br/>
+                This system comprises a crafted <strong>Figma UI
+                library</strong> showcasing an array of reusable components. Complementing the UI library is a
+                <strong>React component library</strong>, enabling developers to seamlessly integrate the design
+                system into their applications.
+                <br/><br/>
+                At the core of this project lies a centralized <strong>design tokens repository</strong>, which serves
+                as the single source of truth for all design properties. <br/> Leveraging <strong>Tokens
+                Studio</strong>, the
+                repository exports tokens in various formats,
+                including <strong>CSS</strong>, <strong>JavaScript</strong>, and <strong>Tailwind CSS</strong>, ensuring
+                consistency and scalability across platforms.
+                <br/><br/>
+                This <strong>design system</strong> offers a harmonious blend of aesthetics and functionality,
+                seamlessly bridging the gap between visionary design and practical implementation. By carefully curating
+                the best elements from <strong>space age design</strong>, <strong>Bauhaus principles</strong>, and the
+                iconic <strong>LCARS UI</strong>, this project delivers a truly immersive and cohesive user experience.
               </p>
 
               <div className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center">
-                <Image className="h-48 w-auto" src={nebula} alt="nebula logo"/>
+                <Image className="h-32 w-auto" src={nebula} alt="nebula logo"/>
               </div>
             </div>
           </FramePanel>
@@ -135,22 +124,31 @@ export default function Home() {
             <FrameConnector className="w-full" divider/>
           </div>
           <div className="grid grid-cols-3 mt-14">
-            <p className="col-span-full md:col-span-2">Lorem ipsum dolor sit amet consectetur adipiscing elit aliquet,
-              etiam vehicula
-              odio blandit leo
-              phasellus pellentesque, varius convallis gravida commodo rhoncus iaculis laoreet. Cursus augue
-              congue
-              interdum luctus rhoncus ac quam per lacus orci vitae pharetra litora tortor penatibus potenti morbi,
-              nullam ligula dapibus inceptos netus ornare arcu facilisi ullamcorper pretium at varius est primis
-              duis. Suspendisse suscipit accumsan nam purus dapibus sociosqu, torquent vulputate parturient
-              inceptos
-              habitant vivamus, velit massa vehicula class curabitur. Felis pellentesque ut facilisi volutpat
-              nascetur sollicitudin luctus ante rhoncus varius, arcu neque platea ad eu porta molestie morbi non,
-              class etiam himenaeos nisl fames egestas proin commodo aenean. Pretium malesuada ullamcorper at
-              mauris
-              magnis auctor ridiculus nostra egestas quisque dictumst, id dui ornare sodales ac fermentum eros
-              facilisis tempor faucibus, netus nam pellentesque tempus nisi elementum torquent risus class
-              sed.</p>
+            <div className="col-span-full md:col-span-2">
+              <p>As a <strong>software engineer</strong> with a keen eye for <strong>UX design</strong>, I believe in
+                the transformative power of technology, especially when guided by thoughtful design that prioritizes
+                people. My journey began at university, where I co-founded a startup and developed an <strong>Android
+                  app</strong>, honing my skills in <strong>client-side development</strong> and <strong>UI
+                  design</strong>.</p>
+              <br/>
+              <p>After graduating, I worked as a <strong>full-stack software engineer</strong> but soon realized that my
+                passion extended deeply into product design. While my roots were in engineering, I discovered a natural
+                inclination towards design—a skill evident from my childhood days of constructing <strong>LEGO
+                  creations</strong> without instructions. Driven by this realization, I took a sabbatical year to
+                immerse myself in <strong>design principles</strong>.</p>
+              <br/>
+              <p>During my career, I have worked on various projects as a <strong>Software Engineer</strong>, <strong>Project
+                Manager</strong>, <strong>Lead Developer</strong>, and <strong>UX Designer</strong>. Recently, I have
+                focused on mastering <strong>software architecture</strong> and structuring codebases efficiently. I
+                have become proficient in <strong>React</strong> and other <strong>frontend frameworks</strong>, as well
+                as end-to-end testing with tools like <strong>Cypress</strong>.</p>
+              <br/>
+              <p>Today, as a senior engineer with a strong foundation in software engineering and a keen interest
+                in <strong>design systems</strong>, I am committed to continuous improvement and delivering high-quality
+                products. My technical expertise, combined with an understanding of design, allows me to create robust
+                and intuitive solutions. I strive to always improve and do better, ensuring that technology serves to
+                make the world a better place by putting people at the center.</p>
+            </div>
             <div className="w-full h-full col-span-full md:col-span-1 flex justify-center items-center">
               <Image className="h-56 w-auto" src={vulcan} alt="nebula logo"/>
             </div>
@@ -168,13 +166,10 @@ export default function Home() {
         className="w-full"
         inverse
       />
-      <footer className="w-full h-full bg-black">
-        <SectionContent className="grid grid-cols-3">
+      <footer className="w-full h-full bg-black py-10">
+        <SectionContent className="grid grid-cols-1">
           <div className="col-span-full md:col-span-1 flex justify-center items-center">
-            <Image className="h-56 w-auto" src={vulcanSign} alt="nebula logo"/>
-          </div>
-          <div className="col-span-full md:col-span-1 flex justify-center items-center">
-            <h2 className="text-background-contrast-primary-50">footer content</h2>
+            <Image className="h-32 w-auto" src={mattyxLogo} alt="mattyx logo"/>
           </div>
         </SectionContent>
       </footer>
