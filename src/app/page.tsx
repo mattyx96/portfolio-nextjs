@@ -24,10 +24,10 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center bg-background-primary">
       <section className="h-screen w-full bg-black flex items-center justify-center md:!justify-start">
         <SectionContent className="justify-center !w-fit md:!w-full">
-          <h1 className="text-background-contrast-primary-50 text-11 md:text-12 leading-10">
+          <h1 className="text-background-contrast-primary-50 text-11 md:text-12 leading-10 text-center md:!text-left">
             Hi, I'm Matteo
           </h1>
-          <p className="text-background-contrast-primary-50">
+          <p className="text-background-contrast-primary-50 text-center md:!text-left">
             I’m developing web experiences
           </p>
           <div className="w-full flex justify-center md:!justify-start">
@@ -118,7 +118,7 @@ export default function Home() {
 
           {/*projects section title*/}
           <div className="w-full flex gap-4 items-center">
-            <h2>
+            <h2 className="text-10 md:text-12">
               About me
             </h2>
             <FrameConnector className="w-full" divider/>
