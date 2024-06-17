@@ -2,15 +2,20 @@
 
 import {ArrowRightIcon, StarIcon, CodeBracketIcon} from "@heroicons/react/24/outline";
 import {Button, Horizon, config, FrameConnector, IconButton} from "nebula-ds-react-library";
-import {ReactNode} from "react";
+import {ReactNode, useEffect} from "react";
 import nebula from "../../public/nebula.png"
 import vulcan from "../../public/vulcan.png"
 import mattyxLogo from "../../public/mattyx.png"
 import {useBreakpoint} from '@react-awesome/use-breakpoint'
 import Image from "next/image";
 import {FramePanel} from "@/components/FramePanel";
+import Starfield from "@/components/Starfield";
 
 export default function Home() {
+
+  useEffect(() => {
+    console.log(config.tw.generateTailwindCompatibleTheme());
+  }, []);
 
   const breakpoint = useBreakpoint()
 
@@ -22,25 +27,30 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-background-primary">
-      <section className="h-screen w-full bg-black flex items-center justify-center md:!justify-start">
-        <SectionContent className="justify-center !w-fit md:!w-full">
-          <h1 className="text-background-contrast-primary-50 text-11 md:text-12 leading-10 text-center md:!text-left">
-            Hi, I'm Matteo
-          </h1>
-          <p className="text-background-contrast-primary-50 text-center md:!text-left">
-            I’m developing web experiences
-          </p>
-          <div className="w-full flex justify-center md:!justify-start">
-            <Button
-              className="w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary"
-              rounded="RBottom" size="M" text="check-it" onClick={() => {
-              document?.getElementById('projects')?.scrollIntoView({
-                behavior: 'smooth'
-              });
-            }}/>
-          </div>
-        </SectionContent>
-      </section>
+      <Starfield backgroundColor={config.lightJsTokens.nbBlack} speedFactor={0.008}>
+        <section className="h-screen w-full flex items-center justify-center md:!justify-start">
+          <SectionContent className="justify-center !w-fit md:!w-full">
+            <h1 className="text-background-contrast-primary-50 text-11 md:text-12 leading-10 text-center md:!text-left">
+              Hi, I'm Matteo
+            </h1>
+            <small className="text-background-contrast-primary-50 text-center md:!text-left">
+              A.k.a. Gary
+            </small>
+            <p className="text-background-contrast-primary-50 mt-10 text-center md:!text-left">
+              I’m developing web experiences
+            </p>
+            <div className="w-full flex justify-center md:!justify-start">
+              <Button
+                className="w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary"
+                rounded="RBottom" size="M" text="check-it" onClick={() => {
+                document?.getElementById('projects')?.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }}/>
+            </div>
+          </SectionContent>
+        </section>
+      </Starfield>
       <Horizon
         color={config.lightJsTokens.nbBlack}
         numLines={15}
@@ -166,16 +176,44 @@ export default function Home() {
         className="w-full"
         inverse
       />
-      <footer className="w-full h-full bg-black py-10">
-        <SectionContent className="grid grid-cols-1">
-          <div className="col-span-full md:col-span-1 flex justify-center items-center">
-            <Image className="h-32 w-auto" src={mattyxLogo} alt="mattyx logo"/>
+      <footer className="w-full h-full min-h-screen bg-black py-10 flex flex-col justify-between">
+        {/*projects section title*/}
+        <SectionContent className="w-full flex flex-col gap-4 items-start my-10">
+          <div className="w-full flex gap-4 items-center">
+            <h2 className="text-10 md:text-12 text-background-primary">
+              Keep in touch
+            </h2>
+            <FrameConnector className="w-full" bridge={{className: '!bg-core-2-300'}} divider/>
+          </div>
+          <div className="flex items-center gap-4">
+            {contacts.map(contact => (
+              <Button
+                className="hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary !text-background-contrast-primary-50"
+                key={contact.name} variant="text" text={contact.name}
+                onClick={() => window.open(contact.url)}/>
+            ))}
           </div>
         </SectionContent>
+        <div className="col-span-full md:col-span-1 flex justify-center items-center">
+          <Image className="h-32 w-auto" src={mattyxLogo} alt="mattyx logo"/>
+        </div>
       </footer>
     </main>
   )
 }
+
+const contacts = [
+  {
+    name: 'LinkedIn',
+    url: 'https://www.linkedin.com/in/slippin-gary/',
+  }, {
+    name: 'GitHub',
+    url: 'https://github.com/mattyx96/',
+  }, {
+    name: 'E-mail',
+    url: 'mailto:matteoomicini.dev@gmail.com',
+  }
+] as const
 
 const SectionContent = (props: {
   className?: string;
