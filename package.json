@@ -13,7 +13,7 @@
     "@next/font": "^14.2.3",
     "@react-awesome/use-breakpoint": "^1.0.0",
     "autoprefixer": "^10.4.19",
-    "nebula-ds-react-library": "^0.0.23",
+    "nebula-ds-react-library": "^0.0.24",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18"
