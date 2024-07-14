@@ -137,7 +137,7 @@ export default function Starfield(props: Props) {
     <div className="relative w-full h-full">
       <canvas
         ref={canvasRef}
-        className="absolute top-0 left-0 right-0 bottom-0 w-full h-full"
+        className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black"
         id="starfield"
       />
       <div className="relative z-50 w-full h-full">

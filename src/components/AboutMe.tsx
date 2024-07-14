@@ -1,5 +1,4 @@
-import {ReactNode} from "react";
-import {FrameConnector} from "nebula-ds-react-library";
+import {FrameConnector, Text} from "nebula-ds-react-library";
 import Image from "next/image";
 import vulcan from "../../public/vulcan.png";
 
@@ -10,47 +9,46 @@ export const AboutMe = (props: {
     <div className={`${props.className}`}>
       {/*about me section title*/}
       <div className="w-full flex gap-4 items-center">
-        <h2 className="text-10 md:text-12">
+        <Text component="h1" variant="display2" className="!text-10 md:!text-11">
           About me
-        </h2>
+        </Text>
         <FrameConnector className="w-full" divider/>
       </div>
 
 
       {/*about me section content*/}
-      <div className="grid grid-cols-3 mt-14">
+      <div className="grid grid-cols-3 mt-14 gap-10">
         <div className="col-span-full md:col-span-2">
-          <span>
+          <Text component="span" variant="body4">
             From LEGO to Code: Crafting Digital Experiences
-          </span>
+          </Text>
           <br/>
           <br/>
-          <p>
-            As a <strong>software engineer</strong> with a passion for <strong>UX design</strong>, I blend technical
-            expertise with
-            creative
-            problem-solving. My journey began in university, where I co-founded a startup and developed an Android
+          <Text variant="body1">
+            As a <strong>software engineer</strong> with a passion for <strong>UX design</strong>, I combine technical
+            expertise with creative problem-solving. My journey began in university, where I co-founded a startup and
+            developed an Android
             app, honing my skills in <strong>client-side development</strong> and UI design.
-          </p>
+          </Text>
           <br/>
-          <p>
+          <Text variant="body1">
             After graduation trough my career, I've taken on various roles, including <strong>Full-stack Software
             Engineer</strong>, <strong>Project Manager</strong>, <strong>Lead Developer</strong>, and <strong>UX
             Designer</strong>. Recently, I've been focusing on <strong>software architecture</strong> and <strong>efficient
             code structuring</strong>. I'm skilled in <strong>React</strong> and other <strong>frontend
             frameworks</strong>, and
             I'm proficient in <strong> end-to-end testing</strong> with tools like Cypress.
-          </p>
+          </Text>
           <br/>
-          <p>
-            Now, as a senior engineer with a strong foundation in both software engineering and design, I'm
-            dedicated to continuous improvement and creating high-quality products. My blend of technical skills
+          <Text variant="body1">
+            Now, as a senior engineer with a foundation in both software engineering and design, I'm
+            dedicated to continuous improvement and creating high-quality products. My combination of technical skills
             and design understanding helps me build robust and user-friendly solutions. I aim to ensure technology
             serves people, making the world a better place by putting users first.
-          </p>
+          </Text>
         </div>
         <div className="w-full h-full col-span-full md:col-span-1 flex justify-center items-center">
-          <Image className="h-56 w-auto" src={vulcan} alt="nebula logo"/>
+          <Image className="h-24 md:h-32 w-auto" src={vulcan} alt="nebula logo"/>
         </div>
       </div>
     </div>

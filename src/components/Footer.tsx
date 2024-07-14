@@ -1,4 +1,4 @@
-import {Button, FrameConnector} from "nebula-ds-react-library";
+import {Button, FrameConnector, Text} from "nebula-ds-react-library";
 import Image from "next/image";
 import mattyxLogo from "../../public/mattyx.png";
 import {SectionContent} from "@/components/SectionContent";
@@ -11,22 +11,22 @@ export const Footer = (props: {
       {/*projects section title*/}
       <SectionContent className="w-full flex flex-col gap-4 items-start my-10">
         <div className="w-full flex gap-4 items-center">
-          <h2 className="text-10 md:text-12 text-background-primary">
+          <Text component="h1" variant="display2" className="!text-background-primary !text-10 md:!text-11">
             Keep in touch
-          </h2>
+          </Text>
           <FrameConnector className="w-full" bridge={{className: '!bg-core-2-300'}} divider/>
         </div>
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 justify-centerr gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-centerr gap-10 mt-10 w-3/4 mx-auto">
           {contacts.map(contact => (
             <Button
               className="hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary !text-background-contrast-primary-50"
-              key={contact.name} variant="text" text={contact.name}
+              key={contact.name} variant="standard" text={contact.name}
               onClick={() => window.open(contact.url)}/>
           ))}
         </div>
       </SectionContent>
       <div className="col-span-full md:col-span-1 flex justify-center items-center">
-        <Image className="h-32 w-auto" src={mattyxLogo} alt="mattyx logo"/>
+        <Image className="h-16 md:h-24 w-auto" src={mattyxLogo} alt="mattyx logo"/>
       </div>
     </footer>
   )

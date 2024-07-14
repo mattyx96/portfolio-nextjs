@@ -36,18 +36,20 @@ export default function Home() {
         className="w-full"
       />
 
-      {/*projects section*/}
-      <section id="projects" className="w-full mt-28 !min-h-screen">
-        <SectionContent>
-          <ShowcaseProjects/>
-        </SectionContent>
-      </section>
+      <div className="px-5 w-full my-36 flex flex-col gap-28">
+        {/*projects section*/}
+        <section id="projects" className="w-full">
+          <SectionContent>
+            <ShowcaseProjects/>
+          </SectionContent>
+        </section>
 
-      <section className="w-full mt-28">
-        <SectionContent className="!min-h-screen">
-          <AboutMe/>
-        </SectionContent>
-      </section>
+        <section className="w-full">
+          <SectionContent className="">
+            <AboutMe/>
+          </SectionContent>
+        </section>
+      </div>
 
       <Horizon
         color={config.lightJsTokens.nbBlack}
