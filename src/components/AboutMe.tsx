@@ -26,9 +26,7 @@ export const AboutMe = (props: {
           <br/>
           <Text variant="body1">
             As a <strong>software engineer</strong> with a passion for <strong>UX design</strong>, I combine technical
-            expertise with creative problem-solving. My journey began in university, where I co-founded a startup and
-            developed an Android
-            app, honing my skills in <strong>client-side development</strong> and UI design.
+            expertise with creative problem-solving. My journey began in university, where I co-founded a startup, honing my skills in <strong>client-side development</strong> and UI design.
           </Text>
           <br/>
           <Text variant="body1">
@@ -37,7 +35,7 @@ export const AboutMe = (props: {
             Designer</strong>. Recently, I've been focusing on <strong>software architecture</strong> and <strong>efficient
             code structuring</strong>. I'm skilled in <strong>React</strong> and other <strong>frontend
             frameworks</strong>, and
-            I'm proficient in <strong> end-to-end testing</strong> with tools like Cypress.
+            I'm proficient in <strong> testing</strong> with tools like Cypress, Playwright and Vitest.
           </Text>
           <br/>
           <Text variant="body1">

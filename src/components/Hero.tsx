@@ -6,7 +6,7 @@ export const Hero = () => {
   return (
     <Starfield backgroundColor={config.lightJsTokens.nbBlack} speedFactor={0.008}>
       <section className="h-screen w-full flex items-center justify-center md:!justify-start">
-        <SectionContent className="justify-center !w-fit md:!w-full">
+        <SectionContent className="justify-center !w-full">
           <Text component="h1" variant="display1"
                 className="!text-background-contrast-primary-50 text-center md:!text-left">
             Hi, I'm Matteo
