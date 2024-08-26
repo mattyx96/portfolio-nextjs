@@ -1,10 +1,15 @@
-import {Button, FrameConnector, IconButton, Text, FramePanel, Paper} from "nebula-ds-react-library";
+import {Button, FrameConnector, IconButton, Text, Paper} from "nebula-ds-react-library";
 import {ArrowRightIcon, CodeBracketIcon} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import nebula from "../../public/nebula.png";
 import constellation from "../../public/constellation.png";
 import {useBreakpoint} from "@react-awesome/use-breakpoint";
 import {ArrowLeftIcon} from "@heroicons/react/24/solid";
+import dynamic from "next/dynamic";
+
+const FramePanel = dynamic(() => import('nebula-ds-react-library').then(l => l.FramePanel), {
+  ssr: false,
+})
 
 export const ShowcaseProjects = (props: {
   className?: string;

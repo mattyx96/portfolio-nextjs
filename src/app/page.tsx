@@ -1,15 +1,7 @@
 'use client';
 
-import {ArrowRightIcon, StarIcon, CodeBracketIcon} from "@heroicons/react/24/outline";
-import {Button, Horizon, config, FrameConnector, IconButton} from "nebula-ds-react-library";
-import {ReactNode, useEffect} from "react";
-import nebula from "../../public/nebula.png"
-import vulcan from "../../public/vulcan.png"
-import mattyxLogo from "../../public/mattyx.png"
-import {useBreakpoint} from '@react-awesome/use-breakpoint'
-import Image from "next/image";
-import {FramePanel} from "@/components/FramePanel";
-import Starfield from "@/components/Starfield";
+import {Horizon, config} from "nebula-ds-react-library";
+import {useEffect} from "react";
 import {AboutMe} from "@/components/AboutMe";
 import {ShowcaseProjects} from "@/components/ShowcaseProjects";
 import {Footer} from "@/components/Footer";
