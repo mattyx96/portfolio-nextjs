@@ -1,9 +1,10 @@
-import {Button, FrameConnector, IconButton, Text} from "nebula-ds-react-library";
-import {FramePanel} from "@/components/FramePanel";
+import {Button, FrameConnector, IconButton, Text, FramePanel, Paper} from "nebula-ds-react-library";
 import {ArrowRightIcon, CodeBracketIcon} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import nebula from "../../public/nebula.png";
+import constellation from "../../public/constellation.png";
 import {useBreakpoint} from "@react-awesome/use-breakpoint";
+import {ArrowLeftIcon} from "@heroicons/react/24/solid";
 
 export const ShowcaseProjects = (props: {
   className?: string;
@@ -25,9 +26,10 @@ export const ShowcaseProjects = (props: {
         <FrameConnector className="w-full" divider/>
       </div>
 
-      {/*project*/}
+      {/*Nebula DS*/}
       <FramePanel
         className="mt-28"
+        title="Nebula Design System"
         renderHeader={
           <>
             <IconButton
@@ -39,13 +41,6 @@ export const ShowcaseProjects = (props: {
               onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
             />
           </>
-        }
-        renderTitle={
-          <div className={"flex flex-wrap gap-2"}>
-            <Text variant="header1" component="h3" className="!text-2xl sm:!text-5xl">
-              Nebula Design System
-            </Text>
-          </div>
         }
       >
         <div className="px-4 py-8 grid grid-cols-3 gap-10 md:grid-cols-5">
