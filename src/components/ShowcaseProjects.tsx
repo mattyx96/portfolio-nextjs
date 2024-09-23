@@ -16,13 +16,15 @@ export const ShowcaseProjects = (props: {
 }) => {
   const breakpoint = useBreakpoint()
 
-  const isDesktop = Boolean(breakpoint.greater('md'))
+  const isMobile = Boolean(breakpoint.smallerOrEqual('sm'))
+  const isDesktop = Boolean(breakpoint.greater('lg'))
 
   const openURL = (url: string) => {
     window.open(url, '_blank')?.focus();
   }
+
   return (
-    <div className={`${props.className}`}>
+    <div className={`${props.className}`} id="projects">
       {/*projects section title*/}
       <div className="w-full flex gap-4 items-center">
         <Text component="h1" variant="display2" className="!text-10 md:!text-11">
@@ -36,6 +38,7 @@ export const ShowcaseProjects = (props: {
         className="mt-28"
         title="Nebula Design System"
         renderHeader={
+          !isMobile &&
           <>
             <IconButton
               size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
@@ -43,13 +46,27 @@ export const ShowcaseProjects = (props: {
             />
             <Button
               size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
-              onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
+              onClick={() => openURL('https://nebula.irongalaxy.space')}
+            />
+          </>
+        }
+        renderFooter={
+          isMobile &&
+          <>
+            <IconButton
+              size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
+              onClick={() => openURL('https://github.com/mattyx96/nebula-ds-react-library')}
+            />
+            <Button
+              size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
+              className="w-full"
+              onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space')}
             />
           </>
         }
       >
-        <div className="px-4 py-8 grid grid-cols-3 gap-10 md:grid-cols-5">
-          <div className="col-span-3">
+        <div className="px-4 py-8 grid grid-cols-5">
+          <div className="col-span-full md:col-span-3">
             <Text variant="body1">Inspired by the 1970s space age style, Bauhaus design, and the LCARS UI from Star
               Trek, I created a
               unique design system that mixes modern and classic design.</Text>
@@ -104,6 +121,7 @@ export const ShowcaseProjects = (props: {
           className="mt-28 opacity-45"
           title="Constellation"
           renderHeader={
+            !isMobile &&
             <>
               <Button
                 size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" leftIcon={<ArrowLeftIcon/>}
@@ -111,12 +129,23 @@ export const ShowcaseProjects = (props: {
               />
             </>
           }
+          renderFooter={
+            isMobile &&
+            <>
+              <Button
+                className="w-full"
+                size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" leftIcon={<ArrowLeftIcon/>}
+                // onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
+              />
+            </>
+          }
         >
-          <div className="px-4 py-8 grid grid-cols-3 gap-10 md:grid-cols-5">
-            <div className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center">
-              <Image className="h-16 md:h-24 w-auto" src={constellation} alt="constellation logo"/>
+          <div className="px-4 py-8 grid gap-10 grid-cols-5">
+            <div
+              className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center order-last md:order-first">
+              <Image className="h-12 md:h-16 w-auto" src={constellation} alt="constellation logo"/>
             </div>
-            <div className="col-span-3">
+            <div className=" col-span-full md:col-span-3">
               <Text variant="body1">This project presents a <strong>framework-agnostic</strong> approach to <strong>frontend
                 development</strong>, inspired by <strong>clean architecture</strong> principles and the <strong>Redux
                 Flux pattern</strong>. Key features include:</Text>
@@ -164,6 +193,7 @@ export const ShowcaseProjects = (props: {
                   </Text>
                 </li>
               </ul>
+              <br/>
               <Text variant="body1">This architecture aims to provide a robust foundation for building <strong>complex
                 frontend
                 applications</strong> with improved <strong>maintainability</strong>, <strong>scalability</strong>,
