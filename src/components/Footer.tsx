@@ -20,10 +20,10 @@ export const Footer = (props: {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 justify-centerr gap-10 mt-10 w-3/4 mx-auto">
             {contacts.map(contact => (
-              <a href={contact.url} className="col-span-1 grid" target="_blank">
+              <a key={contact.name} href={contact.url} className="col-span-1 grid" target="_blank">
                 <Button
                   className="hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary !text-background-contrast-primary-50"
-                  key={contact.name} variant="standard" text={contact.name}
+                  variant="standard" text={contact.name}
                 />
               </a>
             ))}
