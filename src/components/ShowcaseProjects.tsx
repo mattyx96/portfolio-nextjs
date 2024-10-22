@@ -19,30 +19,30 @@ export const ShowcaseProjects = (props: {
   const isMobile = Boolean(breakpoint.smallerOrEqual('sm'))
   const isDesktop = Boolean(breakpoint.greater('lg'))
 
-  const NebulaActions = (props: { mainButtonClassName?: string }) => (<>
+  const NebulaActions = () => (<>
     <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
       <IconButton
         size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
       />
     </a>
-    <a href="https://nebula.irongalaxy.space" target="_blank">
+    <a href="https://nebula.irongalaxy.space" target="_blank" className="!w-full lg:!w-fit">
       <Button
         size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
-        className={props.mainButtonClassName}
+        className="!w-full lg:!w-fit"
       />
     </a>
   </>)
 
-  const ConstellationActions = (props: { mainButtonClassName?: string }) => (<>
-    <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
-      <IconButton
-        size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
+  const ConstellationActions = () => (<>
+    <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank" className="!w-full lg:!w-fit">
+      <Button
+        size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" rightIcon={<ArrowRightIcon/>}
+        className="!w-full lg:!w-fit"
       />
     </a>
     <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
-      <Button
-        size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
-        className={props.mainButtonClassName}
+      <IconButton
+        size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
       />
     </a>
   </>)
@@ -62,9 +62,9 @@ export const ShowcaseProjects = (props: {
         className="mt-28"
         title="Nebula Design System"
         renderHeader={!isMobile && <NebulaActions/>}
-        renderFooter={isMobile && <NebulaActions mainButtonClassName="w-full"/>}
+        renderFooter={isMobile && <NebulaActions/>}
       >
-        <div className="px-4 pt-8 -mb-6 grid grid-cols-5">
+        <div className="px-4 pt-8 -mb-0 pb-10 lg:pb-0 lg:-mb-8 grid grid-cols-5">
           <div className="col-span-full md:col-span-3">
             <Text variant="body1">Inspired by the 1970s space age style, Bauhaus design, and the LCARS UI from Star
               Trek, I created a
@@ -119,27 +119,10 @@ export const ShowcaseProjects = (props: {
           inverse
           className="mt-28 opacity-45"
           title="Constellation"
-          renderHeader={
-            !isMobile &&
-            <>
-              <Button
-                size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" leftIcon={<ArrowLeftIcon/>}
-                // onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
-              />
-            </>
-          }
-          renderFooter={
-            isMobile &&
-            <>
-              <Button
-                className="w-full"
-                size={isDesktop ? 'M' : 'S'} rounded="L" text="Open" leftIcon={<ArrowLeftIcon/>}
-                // onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space/')}
-              />
-            </>
-          }
+          renderHeader={!isMobile && <ConstellationActions/>}
+          renderFooter={isMobile && <ConstellationActions/>}
         >
-          <div className="px-4 pt-8 -mb-6 grid gap-10 grid-cols-5">
+          <div className="px-4 pt-8 -mb-0 pb-10 lg:pb-0 lg:-mb-8 grid grid-cols-5">
             <div
               className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center order-last md:order-first">
               <Image className="h-12 md:h-16 w-auto" src={constellation} alt="constellation logo"/>
