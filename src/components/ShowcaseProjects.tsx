@@ -19,9 +19,33 @@ export const ShowcaseProjects = (props: {
   const isMobile = Boolean(breakpoint.smallerOrEqual('sm'))
   const isDesktop = Boolean(breakpoint.greater('lg'))
 
-  const openURL = (url: string) => {
-    window.open(url, '_blank')?.focus();
-  }
+  const NebulaActions = (props: { mainButtonClassName?: string }) => (<>
+    <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
+      <IconButton
+        size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
+      />
+    </a>
+    <a href="https://nebula.irongalaxy.space" target="_blank">
+      <Button
+        size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
+        className={props.mainButtonClassName}
+      />
+    </a>
+  </>)
+
+  const ConstellationActions = (props: { mainButtonClassName?: string }) => (<>
+    <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
+      <IconButton
+        size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
+      />
+    </a>
+    <a href="https://github.com/mattyx96/nebula-ds-react-library" target="_blank">
+      <Button
+        size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
+        className={props.mainButtonClassName}
+      />
+    </a>
+  </>)
 
   return (
     <div className={`${props.className}`} id="projects">
@@ -37,33 +61,8 @@ export const ShowcaseProjects = (props: {
       <FramePanel
         className="mt-28"
         title="Nebula Design System"
-        renderHeader={
-          !isMobile &&
-          <>
-            <IconButton
-              size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
-              onClick={() => openURL('https://github.com/mattyx96/nebula-ds-react-library')}
-            />
-            <Button
-              size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
-              onClick={() => openURL('https://nebula.irongalaxy.space')}
-            />
-          </>
-        }
-        renderFooter={
-          isMobile &&
-          <>
-            <IconButton
-              size={isDesktop ? 'M' : 'S'} variant="outlined" icon={<CodeBracketIcon/>}
-              onClick={() => openURL('https://github.com/mattyx96/nebula-ds-react-library')}
-            />
-            <Button
-              size={isDesktop ? 'M' : 'S'} rounded="R" text="Open" rightIcon={<ArrowRightIcon/>}
-              className="w-full"
-              onClick={() => openURL('https://nebula-ds-react-library.irongalaxy.space')}
-            />
-          </>
-        }
+        renderHeader={!isMobile && <NebulaActions/>}
+        renderFooter={isMobile && <NebulaActions mainButtonClassName="w-full"/>}
       >
         <div className="px-4 py-8 grid grid-cols-5">
           <div className="col-span-full md:col-span-3">

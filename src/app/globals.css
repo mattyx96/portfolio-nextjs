@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply bg-background-contrast-primary-500;
+}
 
 @media print {
   body {
