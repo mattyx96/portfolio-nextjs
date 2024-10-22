@@ -64,7 +64,7 @@ export const ShowcaseProjects = (props: {
         renderHeader={!isMobile && <NebulaActions/>}
         renderFooter={isMobile && <NebulaActions mainButtonClassName="w-full"/>}
       >
-        <div className="px-4 py-8 grid grid-cols-5">
+        <div className="px-4 pt-8 -mb-6 grid grid-cols-5">
           <div className="col-span-full md:col-span-3">
             <Text variant="body1">Inspired by the 1970s space age style, Bauhaus design, and the LCARS UI from Star
               Trek, I created a
@@ -139,7 +139,7 @@ export const ShowcaseProjects = (props: {
             </>
           }
         >
-          <div className="px-4 py-8 grid gap-10 grid-cols-5">
+          <div className="px-4 pt-8 -mb-6 grid gap-10 grid-cols-5">
             <div
               className="w-full h-full col-span-full md:col-span-2 flex justify-center items-center order-last md:order-first">
               <Image className="h-12 md:h-16 w-auto" src={constellation} alt="constellation logo"/>
