@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 html {
-  @apply bg-background-contrast-primary-500;
+    @apply bg-black;
 }
 
 @media print {
-  body {
-    -webkit-print-color-adjust: exact; /* chrome */
-    color-adjust: exact; /* firefox and IE */
-  }
+    body {
+        -webkit-print-color-adjust: exact; /* chrome */
+        color-adjust: exact; /* firefox and IE */
+    }
 }
