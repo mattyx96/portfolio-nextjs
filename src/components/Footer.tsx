@@ -2,13 +2,13 @@ import {Button, config, FrameConnector, Text} from "nebula-ds-react-library";
 import Image from "next/image";
 import mattyxLogo from "../../public/mattyx.png";
 import {SectionContent} from "@/components/SectionContent";
-import Starfield from "@/components/Starfield";
+import StarField from "@/components/StarField";
 
 export const Footer = (props: {
   className?: string;
 }) => {
   return (
-    <Starfield backgroundColor={config.lightJsTokens.nbBlack} className="" speedFactor={0.008}>
+    <StarField backgroundColor={config.lightJsTokens.nbBlack} className="" speedFactor={0.008}>
       <footer className={`w-full h-full py-10 flex flex-col justify-between ${props.className}`}>
         {/*projects section title*/}
         <SectionContent className="w-full flex flex-col gap-4 items-start my-10">
@@ -33,7 +33,7 @@ export const Footer = (props: {
           <Image className="h-16 md:h-24 w-auto" src={mattyxLogo} alt="mattyx logo"/>
         </div>
       </footer>
-    </Starfield>
+    </StarField>
   )
 }
 

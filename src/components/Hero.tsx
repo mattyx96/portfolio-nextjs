@@ -1,10 +1,10 @@
 import {Button, config, Text} from "nebula-ds-react-library";
 import {SectionContent} from "@/components/SectionContent";
-import Starfield from "@/components/Starfield";
+import StarField from "@/components/StarField";
 
 export const Hero = () => {
     return (
-        <Starfield backgroundColor={config.lightJsTokens.nbBlack} speedFactor={0.008}>
+        <StarField backgroundColor={config.lightJsTokens.nbBlack} speedFactor={0.008}>
             <section
                 className="h-screen w-full flex items-center justify-center md:pl-10 lg:pl-5 xl:pl-0 md:!justify-start">
                 <SectionContent className="justify-center !w-full">
@@ -31,6 +31,6 @@ export const Hero = () => {
                     </div>
                 </SectionContent>
             </section>
-        </Starfield>
+        </StarField>
     )
 }
