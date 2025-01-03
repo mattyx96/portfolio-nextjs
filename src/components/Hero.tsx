@@ -1,6 +1,8 @@
 import {Button, config, Text} from "nebula-ds-react-library";
 import {SectionContent} from "@/components/SectionContent";
 import StarField from "@/components/StarField";
+import {randomPick} from "@/utils";
+import {useEffect, useState} from "react";
 
 export const Hero = () => {
     return (
@@ -21,16 +23,35 @@ export const Hero = () => {
                         I’m developing web experiences
                     </Text>
                     <div className="w-full flex justify-center md:!justify-start">
-                        <Button
-                            className="w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary"
-                            rounded="RBottom" size="M" text="check-it" onClick={() => {
-                            document?.getElementById('projects')?.scrollIntoView({
-                                behavior: 'smooth'
-                            });
-                        }}/>
+                        <CTA/>
                     </div>
                 </SectionContent>
             </section>
         </StarField>
     )
+}
+
+const buttonRoundedVariants = ["L", "Default", "R", "RTop", "RBottom", "LTop", "LBottom"] as const
+const CTA = () => {
+    const [currentRounded, setCurrentRounded] = useState<typeof buttonRoundedVariants[number]>("R")
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentRounded(prevRounded => {
+                const nextRoundedOptions = buttonRoundedVariants.filter(r => r !== prevRounded);
+                return randomPick(nextRoundedOptions);
+            });
+        }, 1000);
+        return () => clearInterval(timer);
+    }, [currentRounded])
+
+    return (
+        <Button
+            className={`w-fit mt-8 hover:!ring-background-contrast-primary-50 active:!ring-button-background-secondary transition-all duration-300 ease-in-out`}
+            rounded={currentRounded} size="M"
+            text="check-it" onClick={() => {
+            document?.getElementById('projects')?.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }}/>)
 }
