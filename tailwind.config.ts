@@ -1,5 +1,5 @@
 import type {Config} from "tailwindcss";
-import {config as nebulaConfig} from "nebula-ds-react-library";
+import { config as nebulaConfig } from "nebula-ds-react-library";
 
 const config: Config = {
   content: [
