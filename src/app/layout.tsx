@@ -1,10 +1,8 @@
 import type {Metadata} from "next";
-import {Inter} from "next/font/google";
 import "./globals.css";
 import "nebula-ds-react-library/style"
 import React from "react";
-
-const inter = Inter({subsets: ["latin"]});
+import {Orbitron, Roboto_Mono} from "next/font/google";
 
 export const metadata: Metadata = {
     title: "Portfolio",
@@ -16,24 +14,23 @@ export const metadata: Metadata = {
     }
 };
 
+const orbitronFont = Orbitron({weight: ['400', '500', '600', '700'], subsets: ['latin']})
+const robotoMonoFont = Roboto_Mono({weight: ['400', '500', '600', '700'], subsets: ['latin']})
+
+
 export default function RootLayout({
                                        children,
                                    }: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html className={`${orbitronFont.className} ${robotoMonoFont.className}`} lang="en">
         <head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com"/>
-            <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet"/>
-            <link
-                href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
-                rel="stylesheet"/>
             <meta name="theme-color" content="#000"/>
             <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+            <title>{metadata.title?.toString()}</title>
         </head>
-        <body className={inter.className}>{children}</body>
+        <body>{children}</body>
         </html>
     );
 }
