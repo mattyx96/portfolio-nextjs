@@ -3,6 +3,7 @@ import "./globals.css";
 import "nebula-ds-react-library/style"
 import React from "react";
 import {Orbitron, Roboto_Mono} from "next/font/google";
+import {Analytics} from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
     title: "Portfolio",
@@ -30,7 +31,10 @@ export default function RootLayout({
             <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
             <title>{metadata.title?.toString()}</title>
         </head>
-        <body>{children}</body>
+        <body>
+        <Analytics/>
+        {children}
+        </body>
         </html>
     );
 }
