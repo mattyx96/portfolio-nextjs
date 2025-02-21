@@ -4,6 +4,7 @@ import "nebula-ds-react-library/style"
 import React from "react";
 import {Orbitron, Roboto_Mono} from "next/font/google";
 import {Analytics} from "@vercel/analytics/react"
+import {SpeedInsights} from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
     title: "Portfolio",
@@ -33,6 +34,7 @@ export default function RootLayout({
         </head>
         <body>
         <Analytics/>
+        <SpeedInsights/>
         {children}
         </body>
         </html>
